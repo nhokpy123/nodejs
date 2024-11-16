@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="date"], input[type="time"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Edit Booking</h1>
+  <form action="/edit/<%= booking._id %>" method="POST">
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" name="customerName" value="<%= booking.customerName %>" required>
+    <br>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="<%= booking.date.toISOString().split('T')[0] %>" required>
+    <br>
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" value="<%= booking.time %>" required>
+    <br>
+    <button type="submit">Update</button>
+  </form>
+</body>
+</html>
